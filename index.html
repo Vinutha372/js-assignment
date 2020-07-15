@@ -1,35 +1,117 @@
-<html> 
-  
-<head> 
-    <title> 
-        print current day and time
-    </title> 
-   
-</head> 
-  
-<body> 
-    <script type="text/javascript"> 
-        var myDate = new Date(); 
-        var myDay = myDate.getDay(); 
-        
-        
-        var weekday = ['Sunday', 'Monday', 'Tuesday', 
-            'Wednesday', 'Thursday', 'Friday', 'Saturday' 
-        ]; 
-        document.write("Today is : " + weekday[myDay]); 
-        document.write("<br/>"); 
-        
-         
-        var hours = myDate.getHours(); 
-        var ampm = hours >= 12 ? 'PM' : 'AM'; 
-        hours = hours % 12; 
-        hours = hours ? hours : 12; 
-        var minutes = myDate.getMinutes(); 
-        minutes = minutes < 10 ? '0' + minutes : minutes; 
-        var myTime = hours + " " + ampm + " : " + minutes +  
-            " : " + myDate.getMilliseconds(); 
-        document.write("\tCurrent time is : " + myTime); 
-    </script> 
-</body> 
-  
-</html> 
+QUESTION 1
+
+1) console.assert 
+The console.assert function is used to test if the passed argument is a truthy or falsey value. In the case that the passed value is falsey, the function logs the extra arguments passed after the first one, otherwise, the code execution proceeds without any log.
+The assert method is particularly useful whenever you want to check the existence of values while keeping the console clean (avoid logging long list of properties, etc.).
+2) console.count and console.countReset 
+These two methods are used to set and clear a counter of how many times a particular string gets logged in the console
+3) console.group and console.groupEnd 
+.group and .groupEnd create and end a group of logs in your console. You can pass a label as the first argument of .group() to describe what it is concerned about
+4) console.table 
+This particular method is incredibly useful to describe an object or array content in a human-friendly table
+console.table makes it easier for the inspection and logging of nested and complex arrays/objects.
+5) console.time and console.timeEnd ⏱
+In the case that you want to check the performance of your code in execution time, and to solve it you create a start timestamp with the Date API and use it to compute the difference after your code execution 
+
+
+QUESTION 2
+
+-->Var
+Before the advent of ES6, var declarations ruled. There are issues associated with variables declared with var, though. That is why it was necessary for new ways to declare variables to emerge. First, let's get to understand var more before we discuss those issues.
+
+Scope of var
+Scope essentially means where these variables are available for use. var declarations are globally scoped or function/locally scoped.
+
+The scope is global when a var variable is declared outside a function. This means that any variable that is declared with var outside a function block is available for use in the whole window.
+
+var is function scoped when it is declared within a function. This means that it is available and can be accessed only within that function.
+
+To understand further, below is the example
+
+    var greeter = "hey hi";
+    
+    function newFunction() {
+        var hello = "hello";
+    }
+Here, greeter is globally scoped because it exists outside a function while hello is function scoped. So we cannot access the variable hello outside of a function. So if we do this:
+
+    var tester = "hey hi";
+    
+    function newFunction() {
+        var hello = "hello";
+    }
+    console.log(hello); // error: hello is not defined
+We'll get an error which is as a result of hello not being available outside the function.
+
+-->Let
+
+let is now preferred for variable declaration. It's no surprise as it comes as an improvement to var declarations. It also solves the problem with var that we just covered. Let's consider why this is so.
+
+let is block scoped
+A block is a chunk of code bounded by {}. A block lives in curly braces. Anything within curly braces is a block.
+
+So a variable declared in a block with let  is only available for use within that block. Let me explain this with an example:
+
+   let greeting = "say Hi";
+   let times = 4;
+
+   if (times > 3) {
+        let hello = "say Hello instead";
+        console.log(hello);// "say Hello instead"
+    }
+   console.log(hello) // hello is not defined
+We see that using hello outside its block (the curly braces where it was defined) returns an error. This is because let variables are block scoped .
+
+-->Const
+
+Variables declared with the const maintain constant values. const declarations share some similarities with let declarations.
+
+const declarations are block scoped
+Like let declarations, const declarations can only be accessed within the block they were declared.
+
+const cannot be updated or re-declared
+This means that the value of a variable declared with const remains the same within its scope. It cannot be updated or re-declared. So if we declare a variable with const, we can neither do this:
+
+    const greeting = "say Hi";
+    greeting = "say Hello instead";// error: Assignment to constant variable. 
+nor this:
+
+    const greeting = "say Hi";
+    const greeting = "say Hello instead";// error: Identifier 'greeting' has already been declared
+Every const declaration, therefore, must be initialized at the time of declaration.
+
+QUESTION 3
+
+JavaScript variables can hold many data types: numbers, strings, objects and more:
+
+var length = 16;  
+var lastName = "Johnson";                      
+var x = {firstName:"John", lastName:"Doe"};    
+The Concept of Data Types
+In programming, data types is an important concept.
+
+To be able to operate on variables, it is important to know something about the type.
+
+Without data types, a computer cannot safely solve this:
+
+var x = 16 + "Volvo";
+Does it make any sense to add "Volvo" to sixteen? Will it produce an error or will it produce a result?
+
+JavaScript will treat the example above as:
+
+var x = "16" + "Volvo";
+When adding a number and a string, JavaScript will treat the number as a string.
+
+Example
+var x = 16 + "Volvo";
+s
+Example
+var x = "Volvo" + 16;
+
+JavaScript:
+var x = 16 + 4 + "Volvo";
+Result: 20Volvo 
+
+JavaScript:
+var x = "Volvo" + 16 + 4;
+Result: Volvo164
