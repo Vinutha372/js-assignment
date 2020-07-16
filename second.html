@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 2</title>
+</head>
+<body>
+    <h1>String</h1>
+
+    <h1>The slice() Method</h1>
+slice() extracts a part of a string and returns the extracted part in a new string.
+
+The method takes 2 parameters: the start position, and the end position (end not included).
+
+This example slices out a portion of a string from position 7 to position 12 (13-1):
+
+<p>Example:
+var str = "Apple, Banana, Kiwi";
+var res = str.slice(7, 13);
+The result of res will be: Banana</p>
+
+    <h1>The substring() Method</h1>
+    
+substring() is similar to slice().
+
+The difference is that substring() cannot accept negative indexes.
+
+<p>Example:
+var str = "Apple, Banana, Kiwi";
+var res = str.substring(7, 13);
+The result of res will be: Banana</p>
+   
+    <h1>The substr() Method</h1>
+    
+substr() is similar to slice().
+
+The difference is that the second parameter specifies the length of the extracted part.
+
+<p>Example:
+var str = "Apple, Banana, Kiwi";
+var res = str.substr(7, 6);
+The result of res will be: Banana</p>
+
+    <h1>The concat() Method</h1>
+    
+concat() joins two or more strings:
+
+<p>Example:
+var text1 = "Hello";
+var text2 = "World";
+var text3 = text1.concat(" ", text2);</p>
+
+    <h1>String.trim()</h1>
+
+    The trim() method removes whitespace from both sides of a string:
+
+<p>Example:
+var str = "       Hello World!        ";
+alert(str.trim());</p>
+
+    <h1>array</h1>
+
+    <h1>pushing</h1>
+    
+    The push() method adds a new element to an array (at the end):
+
+<p>Example
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.push("Kiwi"); </p>
+
+<h1>Popping</h1>
+The pop() method removes the last element from an array:
+
+<p>Example
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.pop();</p>   
+
+<h1>Shifting Elements</h1>
+Shifting is equivalent to popping, working on the first element instead of the last.
+
+The shift() method removes the first array element and "shifts" all other elements to a lower index.
+
+<p>Example
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.shift();</p>
+
+<h1>Changing Elements</h1>
+Array elements are accessed using their index number:
+
+Array indexes start with 0. [0] is the first array element, [1] is the second, [2] is the third
+
+<p>Example
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits[0] = "Kiwi";  </p>
+
+<h1>Deleting Elements</h1>
+    
+Since JavaScript arrays are objects, elements can be deleted by using the JavaScript operator delete:
+
+<p>Example
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+delete fruits[0];</p>
+
+<h1>Splicing an Array</h1>
+The splice() method can be used to add new items to an array:
+
+<p>Example
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.splice(2, 0, "Lemon", "Kiwi");</p>
+
+<h1>Slicing an Array</h1>
+The slice() method slices out a piece of an array into a new array.
+
+This example slices out a part of an array starting from array element 1 ("Orange"):
+
+<p>Example
+var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+var citrus = fruits.slice(1);</p>
+
+
+
+</body>
+</html>
